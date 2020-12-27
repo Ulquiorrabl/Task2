@@ -10,7 +10,5 @@ namespace Task2.TextClasses.SentenceParts.WordClass
     interface IWord
     {
         ISymbol[] Value { get; }
-
-        int Length { get; }
     }
 }

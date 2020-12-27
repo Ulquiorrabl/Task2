@@ -13,9 +13,11 @@ namespace Task2.TextClasses.SentenceClass.SentenceImplementation
         public int NumberOfWords { get; }
         public SentenceType SentenceType { get; }
 
+        public ISentencePart[] Value { get; }
+
         public Sentence(ISentencePart[] sentenceParts)
         {
-
+            this.Value = sentenceParts;
         }
     }
 }

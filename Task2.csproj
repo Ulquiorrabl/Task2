@@ -48,6 +48,8 @@
     <Compile Include="Enum\Statuses\TextFactoryStatus.cs" />
     <Compile Include="Enum\Statuses\TextLoadingStatus.cs" />
     <Compile Include="Enum\Statuses\TextParsingStatus.cs" />
+    <Compile Include="Factories\SentenceFactoryItems\ISentenceFactory.cs" />
+    <Compile Include="Factories\SentenceFactoryItems\SentenceFactoryImplementation\SentenceFactory.cs" />
     <Compile Include="Factories\SymbolFactoryItems\ISymbolFactory.cs" />
     <Compile Include="Factories\SymbolFactoryItems\SymbolFactoryImplementation\SymbolFactory.cs" />
     <Compile Include="Factories\WordFactoryItems\IWordFactory.cs" />

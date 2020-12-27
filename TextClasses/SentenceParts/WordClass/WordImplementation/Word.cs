@@ -7,7 +7,7 @@ using Task2.TextClasses.SymbolClass;
 
 namespace Task2.TextClasses.SentenceParts.WordClass.WordImplementation
 {
-    class Word : IWord
+    class Word : IWord, ISentencePart
     {
         public ISymbol[] Value { get; }
 

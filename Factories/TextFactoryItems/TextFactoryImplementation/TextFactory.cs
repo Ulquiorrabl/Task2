@@ -8,7 +8,7 @@ using Task2.TextClasses.SentenceClass;
 
 namespace Task2.Factories.TextFactoryItems.TextFactoryImplementation
 {
-    class TextFactory //: ITextFactory
+    class TextFactory : ITextFactory
     {
         List<ISentence> sentences;
 

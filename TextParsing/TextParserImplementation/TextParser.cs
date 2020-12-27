@@ -8,6 +8,7 @@ using Task2.Enum.Types;
 using Task2.Factories.TextFactoryItems;
 using Task2.Factories.WordFactoryItems;
 using Task2.Factories.SymbolFactoryItems;
+using Task2.Factories.SentenceFactoryItems;
 using Task2.TextClasses.SentenceClass;
 using Task2.TextClasses.SentenceParts;
 using Task2.TextClasses.SentenceParts.WordClass;
@@ -20,12 +21,14 @@ namespace Task2.TextParsing.TextParserImplementation
         ITextFactory textFactory;
         IWordFactory wordFactory;
         ISymbolFactory symbolFactory;
+        ISentenceFactory sentenceFactory;
         
-        public TextParser(ITextFactory textFactory, IWordFactory wordFactory, ISymbolFactory symbolFactory)
+        public TextParser(ITextFactory textFactory, ISentenceFactory sentenceFactory, IWordFactory wordFactory, ISymbolFactory symbolFactory)
         {
             this.textFactory = textFactory;
             this.wordFactory = wordFactory;
             this.symbolFactory = symbolFactory;
+            this.sentenceFactory = sentenceFactory;
         }
 
         public TextParsingStatus ParseLine(string line)
@@ -42,7 +45,12 @@ namespace Task2.TextParsing.TextParserImplementation
                     tempSymbol = symbolFactory.CreateSymbol(ch);
                     if(tempSymbol.SymbolType == SymbolType.WordSlpitter)
                     {
-                        wordFactory.CreateWord(symbolsBuffer.ToArray());
+                        sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer.ToArray()));
+                        symbolsBuffer.Clear();
+                    }
+                    if(tempSymbol.SymbolType == SymbolType.SentenceSplitter)
+                    {
+                        textFactory.AddSentence(sentenceFactory.CreateSentece(sentencePartsBuffer.ToArray()));
                     }
                 }
                 return TextParsingStatus.LineParsed;

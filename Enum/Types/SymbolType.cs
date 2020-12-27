@@ -10,6 +10,7 @@ namespace Task2.Enum.Types
     {
         Vowel,
         Consonant,
-        WordSlpitter
+        WordSlpitter,
+        SentenceSplitter
     }
 }

@@ -12,6 +12,5 @@ namespace Task2.Factories.TextFactoryItems
     interface ITextFactory
     {
         TextFactoryStatus AddSentence(ISentence sentence);
-        TextFactoryStatus AddWord(IWord word);
     }
 }
