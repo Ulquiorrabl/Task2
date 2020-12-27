@@ -8,5 +8,6 @@ namespace Task2.TextClasses
 {
     class Symbol
     {
+
     }
 }

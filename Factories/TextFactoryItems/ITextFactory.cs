@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task2.Enum;
 using Task2.TextClasses.SentenceClass;
 
-namespace Task2.TextClasses
+namespace Task2.TextFactoryItems
 {
-    class Text
+    interface ITextFactory
     {
-        List<ISentence> sentences;
-
+        TextFactoryStatus AddSentence(ISentence sentence);
     }
 }

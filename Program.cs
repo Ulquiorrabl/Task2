@@ -12,8 +12,9 @@ namespace Task2
         static void Main(string[] args)
         {
             TextLoader textLoader = new TextLoader();
-            Console.WriteLine(textLoader.OpenFile("Text.txt"));
-            Console.WriteLine(textLoader.GetNextLine());
+            string path = "F:\\Repositories\\Task2\\Task3\\Text\\Text.txt";
+            textLoader.OpenFile(path);
+            textLoader.Dispose();
             Console.ReadKey();
         }
     }

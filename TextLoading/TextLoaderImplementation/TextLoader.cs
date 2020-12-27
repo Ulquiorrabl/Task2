@@ -8,9 +8,14 @@ using Task2.Enum;
 
 namespace Task2.TextLoading.TextLoaderImplementation
 {
-    class TextLoader : ITextLoader
+    class TextLoader : ITextLoader, IDisposable
     {
         StreamReader sr;
+
+        public void Dispose()
+        {
+            sr.Close();
+        }
 
         public string GetNextLine()
         {

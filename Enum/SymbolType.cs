@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2.TextClasses.TextClass
+namespace Task2.Enum
 {
-    class IText
+    enum SymbolType
     {
-        int Length { get; }
+        Vowel,
+        Consonants
     }
 }

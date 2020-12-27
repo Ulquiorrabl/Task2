@@ -8,5 +8,6 @@ namespace Task2.TextClasses.SentenceClass
 {
     interface ISentence
     {
+        int NumberOfWords { get; }
     }
 }

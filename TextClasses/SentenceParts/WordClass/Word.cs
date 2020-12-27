@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task2.TextClasses.SymbolClass;
 
-namespace Task2.TextClasses.TextClass
+namespace Task2.TextClasses
 {
-    class IText
+    class Word
     {
-        int Length { get; }
+        List<ISymbol> symbols;
     }
 }

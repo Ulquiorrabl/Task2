@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2.TextClasses.TextClass
+namespace Task2.Factories.WordFactoryItems.WordFactoryImplementation
 {
-    class IText
+    class WordFactory
     {
-        int Length { get; }
+
     }
 }

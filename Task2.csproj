@@ -43,7 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\SymbolType.cs" />
+    <Compile Include="Enum\TextFactoryStatus.cs" />
     <Compile Include="Enum\TextLoadingStatus.cs" />
+    <Compile Include="Enum\TextParsingStatus.cs" />
+    <Compile Include="Factories\WordFactoryItems\IWordFactory.cs" />
+    <Compile Include="Factories\WordFactoryItems\WordFactoryImplementation\WordFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextClasses\SentenceClass\ISentence.cs" />
@@ -52,9 +57,10 @@
     <Compile Include="TextClasses\SymbolClass\Symbol.cs" />
     <Compile Include="TextClasses\TextClass\IText.cs" />
     <Compile Include="TextClasses\TextClass\Text.cs" />
-    <Compile Include="TextClasses\TextFile.cs" />
     <Compile Include="TextClasses\WordClass\IWord.cs" />
     <Compile Include="TextClasses\WordClass\Word.cs" />
+    <Compile Include="Factories\TextFactoryItems\ITextFactory.cs" />
+    <Compile Include="Factories\TextFactoryItems\TextFactoryImplementation\TextFactory.cs" />
     <Compile Include="TextLoading\ITextLoader.cs" />
     <Compile Include="TextLoading\TextLoaderImplementation\TextLoader.cs" />
     <Compile Include="TextParsing\ITextParser.cs" />
@@ -63,7 +69,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SymbolFactory\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Text\Text.txt" />
   </ItemGroup>
