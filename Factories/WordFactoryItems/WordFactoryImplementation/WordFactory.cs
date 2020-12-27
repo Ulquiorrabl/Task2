@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Task2.TextClasses.SentenceParts.WordClass;
+using Task2.TextClasses.SentenceParts.WordClass.WordImplementation;
+using Task2.TextClasses.SymbolClass;
 
 namespace Task2.Factories.WordFactoryItems.WordFactoryImplementation
 {
     class WordFactory : IWordFactory
     {
-        public Word CreateWord(char[] symbols)
+        public IWord CreateWord(ISymbol[] symbols)
         {
-            return new Word();
+            return new Word(symbols);
         }
     }
 }

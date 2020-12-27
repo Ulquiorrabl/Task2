@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task2.TextClasses.SentenceParts.DelimiterClass
 {
-    class Delimiter
+    interface IDelimiter
     {
-
     }
 }

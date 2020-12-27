@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2.Enum.Types
+namespace Task2.TextClasses.SentenceParts.DelimiterClass.DelimiterImplementation
 {
-    enum SymbolType
+    class Delimiter
     {
-        Vowel,
-        Consonant,
-        WordSlpitter
+
     }
 }

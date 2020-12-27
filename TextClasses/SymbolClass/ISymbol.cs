@@ -9,6 +9,7 @@ namespace Task2.TextClasses.SymbolClass
 {
     interface ISymbol
     {
+        char Value { get; }
         SymbolType SymbolType { get; }
     }
 }
