@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Task2.TextClasses.SentenceParts.WordClass
+namespace Task2.TextClasses.SentenceParts
 {
-    class Word
+    interface ISentencePart
     {
 
     }

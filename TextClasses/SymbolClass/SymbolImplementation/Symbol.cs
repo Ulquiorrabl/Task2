@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2.TextClasses
+namespace Task2.TextClasses.SymbolClass.SymbolImplementation
 {
     class Symbol
     {
-
+        char symbol;
     }
 }

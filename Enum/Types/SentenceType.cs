@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2.TextClasses
+namespace Task2.Enum.Types
 {
-    class Sentence
+    enum SentenceType
     {
-
+        Question,
+        Declarative,
+        Exclamatory
     }
 }
