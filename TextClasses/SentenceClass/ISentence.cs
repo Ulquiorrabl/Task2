@@ -12,7 +12,8 @@ namespace Task2.TextClasses.SentenceClass
     {
         int NumberOfWords { get; }
         SentenceType SentenceType { get; }
-
         ISentencePart[] Value { get; }
+
+        string ToString();
     }
 }

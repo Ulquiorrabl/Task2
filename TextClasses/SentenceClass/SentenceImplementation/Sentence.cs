@@ -15,6 +15,16 @@ namespace Task2.TextClasses.SentenceClass.SentenceImplementation
 
         public ISentencePart[] Value { get; }
 
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (ISentencePart sentencePart in Value)
+            {
+                sb.Append(sentencePart.ToString());
+            }
+            return sb.ToString();
+        }
+
         public Sentence(ISentencePart[] sentenceParts)
         {
             this.Value = sentenceParts;

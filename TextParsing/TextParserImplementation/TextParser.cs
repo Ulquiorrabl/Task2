@@ -36,13 +36,13 @@ namespace Task2.TextParsing.TextParserImplementation
             StringBuilder buffer = new StringBuilder();
             List<ISymbol> symbolsBuffer = new List<ISymbol>();
             List<ISentencePart> sentencePartsBuffer = new List<ISentencePart>();
-
             ISymbol tempSymbol;
             try
             {
                 foreach (char ch in line)
                 {
                     tempSymbol = symbolFactory.CreateSymbol(ch);
+                    symbolsBuffer.Add(tempSymbol);
                     if(tempSymbol.SymbolType == SymbolType.WordSlpitter)
                     {
                         sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer.ToArray()));

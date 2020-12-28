@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Task2.Enum.Statuses;
 using Task2.TextClasses.SentenceClass;
+using Task2.TextClasses.TextClass;
 
 namespace Task2.Factories.TextFactoryItems.TextFactoryImplementation
 {
@@ -28,6 +29,11 @@ namespace Task2.Factories.TextFactoryItems.TextFactoryImplementation
             {
                 return TextFactoryStatus.Error;
             }
+        }
+
+        public IText CreateText()
+        {
+            return new Text(sentences.ToArray());
         }
     }
 }

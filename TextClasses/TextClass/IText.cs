@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Task2.TextClasses.TextClass
 {
-    class IText
+    interface IText
     {
         int Length { get; }
+
+        string GetText();
     }
 }

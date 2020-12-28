@@ -13,6 +13,11 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
 
         public SymbolType SymbolType { get; }
 
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
         public Symbol(char symbol)
         {
             this.Value = symbol;
@@ -20,7 +25,15 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
             {
                 SymbolType = SymbolType.Vowel;
             }
-            else if(IsSplitter())
+            else if(IsSentenceSplitter(symbol))
+            {
+                SymbolType = SymbolType.SentenceSplitter;
+            }
+            else if (IsWordSplitter(symbol))
+            {
+                SymbolType = SymbolType.WordSlpitter;
+            }
+            else
             {
                 SymbolType = SymbolType.Consonant;
             }
@@ -31,9 +44,28 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
             return "aeiouAEIOU".IndexOf(ch) >= 0;
         }
 
-        bool IsSplitter()
+        bool IsSentenceSplitter(char ch)
         {
-            return false;
+            if(ch == '!')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        bool IsWordSplitter(char ch)
+        {
+            if(ch == ' ')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

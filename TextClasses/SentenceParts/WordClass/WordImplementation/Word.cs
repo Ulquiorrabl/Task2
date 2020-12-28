@@ -10,8 +10,16 @@ namespace Task2.TextClasses.SentenceParts.WordClass.WordImplementation
     class Word : IWord, ISentencePart
     {
         public ISymbol[] Value { get; }
-
         public int Length { get; }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(ISymbol symbol in Value)
+            {
+                sb.Append(symbol.ToString());
+            }
+            return sb.ToString();
+        }
         public Word(ISymbol[] symbols)
         {
             this.Value = symbols;

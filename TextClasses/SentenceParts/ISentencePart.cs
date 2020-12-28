@@ -11,5 +11,6 @@ namespace Task2.TextClasses.SentenceParts
     {
         ISymbol[] Value { get; }
         int Length { get; }
+        string ToString();
     }
 }

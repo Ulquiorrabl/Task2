@@ -11,5 +11,7 @@ namespace Task2.TextClasses.SymbolClass
     {
         char Value { get; }
         SymbolType SymbolType { get; }
+
+        string ToString();
     }
 }
