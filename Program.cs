@@ -12,7 +12,9 @@ using Task2.Factories.WordFactoryItems.WordFactoryImplementation;
 using Task2.TextClasses.SentenceClass;
 using Task2.TextClasses.TextClass;
 using Task2.TextClasses.SentenceParts.WordClass;
+using Task2.TextClasses.SentenceParts;
 using Task2.Enum.Types;
+using Task2.Comparers;
 
 namespace Task2
 {
@@ -44,8 +46,9 @@ namespace Task2
                 Console.Clear();
                 Console.WriteLine("Choose needed operation");
                 Console.WriteLine("1.Show parsed text");
-                Console.WriteLine("3.Show Question sentences");
                 Console.WriteLine("2.Show words with needed length in question sentences");
+                Console.WriteLine("3.Show sentences in increasing order");
+                Console.WriteLine("4.Remove words with needed length");
                 Console.WriteLine("0.Exit");
                 try
                 {
@@ -84,7 +87,7 @@ namespace Task2
                         {
                             if(sentence.SentenceType == SentenceType.Question)
                             {
-                                foreach(IWord word in sentence.Value)
+                                foreach(ISentencePart word in sentence.Value)
                                 {
                                     if(word.Length == length)
                                     {
@@ -97,13 +100,23 @@ namespace Task2
                         break;
                     case 3:
                         Console.Clear();
-                        Console.WriteLine("Question sentences:");
-                        foreach (ISentence sentence in text.Value)
+                        Console.WriteLine("Show sentences in increasing order");
+                        Text temp = new Text(text.Value);
+                        temp.Value.Sort(new SentenceLengthComparer());
+                        foreach(ISentence sentence in temp.Value)
                         {
-                            if (sentence.SentenceType == SentenceType.Question)
-                            {
-                                Console.WriteLine(sentence);
-                            }
+                            Console.WriteLine(sentence);
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        Console.WriteLine("Remove all words with needed length");
+                        Console.WriteLine("Input word length:");
+                        int wordLength = int.Parse(Console.ReadLine());
+                        foreach(ISentence sentence in text.Value)
+                        {
+                            sentence.Value.RemoveAll(word => word.Length == wordLength);
                         }
                         break;
                     case 0:

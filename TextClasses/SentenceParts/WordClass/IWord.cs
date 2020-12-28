@@ -9,8 +9,6 @@ namespace Task2.TextClasses.SentenceParts.WordClass
 {
     interface IWord
     {
-        List<ISymbol> Value { get; }
-
-        int Length { get; }
+        bool IsBeginsWithVowel { get; }
     }
 }

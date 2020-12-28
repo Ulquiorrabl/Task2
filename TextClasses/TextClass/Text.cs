@@ -19,7 +19,7 @@ namespace Task2.TextClasses.TextClass
             }
         }
 
-        public Text(ISentence[] sentences)
+        public Text(List<ISentence> sentences)
         {
             Value = new List<ISentence>();
             try

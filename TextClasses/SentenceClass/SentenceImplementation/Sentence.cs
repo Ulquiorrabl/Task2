@@ -25,7 +25,7 @@ namespace Task2.TextClasses.SentenceClass.SentenceImplementation
             return sb.ToString();
         }
 
-        public Sentence(List<ISentencePart> sentenceParts, SentenceType sentenceType = SentenceType.Declarative)
+        public Sentence(List<ISentencePart> sentenceParts, SentenceType sentenceType = SentenceType.Declarative, int numberOfWords = 0)
         {
             Value = new List<ISentencePart>();
             foreach(ISentencePart sentencePart in sentenceParts)
@@ -33,6 +33,7 @@ namespace Task2.TextClasses.SentenceClass.SentenceImplementation
                 Value.Add(sentencePart);
             }
             this.SentenceType = sentenceType;
+            this.NumberOfWords = numberOfWords;
         }
     }
 }

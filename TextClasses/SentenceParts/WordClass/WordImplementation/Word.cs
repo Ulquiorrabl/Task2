@@ -17,6 +17,7 @@ namespace Task2.TextClasses.SentenceParts.WordClass.WordImplementation
                 return Value.Count;
             }
         }
+        public bool IsBeginsWithVowel { get; private set; }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -26,9 +27,10 @@ namespace Task2.TextClasses.SentenceParts.WordClass.WordImplementation
             }
             return sb.ToString();
         }
-        public Word(List<ISymbol> symbols)
+        public Word(List<ISymbol> symbols, bool isBeginsWithVowel = false)
         {
             this.Value = new List<ISymbol>();
+            this.IsBeginsWithVowel = isBeginsWithVowel;
             foreach (ISymbol symbol in symbols)
             {
                 Value.Add(symbol);

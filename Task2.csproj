@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparers\SentenceLengthComparer.cs" />
     <Compile Include="Enum\Types\SentenceType.cs" />
     <Compile Include="Enum\Types\SymbolSentenceType.cs" />
     <Compile Include="Enum\Types\SymbolType.cs" />

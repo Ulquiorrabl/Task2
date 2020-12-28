@@ -33,7 +33,6 @@ namespace Task2.TextParsing.TextParserImplementation
 
         public TextParsingStatus ParseLine(string line)
         {
-            bool SpaceSkip = true;
             List<ISymbol> symbolsBuffer = new List<ISymbol>();
             List<ISentencePart> sentencePartsBuffer = new List<ISentencePart>();
             ISymbol tempSymbol;
@@ -63,8 +62,9 @@ namespace Task2.TextParsing.TextParserImplementation
                 }
                 return TextParsingStatus.LineParsed;
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e.Message);
                 return TextParsingStatus.Error;
             }
         }

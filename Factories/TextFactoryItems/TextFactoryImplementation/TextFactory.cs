@@ -33,7 +33,7 @@ namespace Task2.Factories.TextFactoryItems.TextFactoryImplementation
 
         public IText CreateText()
         {
-            return new Text(sentences.ToArray());
+            return new Text(sentences);
         }
     }
 }
