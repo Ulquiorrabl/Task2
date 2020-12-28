@@ -9,6 +9,8 @@ namespace Task2.Enum.Types
     enum SymbolSentenceType
     {
         Question,
-        Exclaimor
+        Exclaimor,
+        Dot,
+        Space
     }
 }

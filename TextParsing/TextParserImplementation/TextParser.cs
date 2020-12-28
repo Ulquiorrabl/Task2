@@ -33,6 +33,7 @@ namespace Task2.TextParsing.TextParserImplementation
 
         public TextParsingStatus ParseLine(string line)
         {
+            bool SpaceSkip = true;
             List<ISymbol> symbolsBuffer = new List<ISymbol>();
             List<ISentencePart> sentencePartsBuffer = new List<ISentencePart>();
             ISymbol tempSymbol;
@@ -40,6 +41,7 @@ namespace Task2.TextParsing.TextParserImplementation
             {
                 foreach (char ch in line)
                 {
+                    
                     tempSymbol = symbolFactory.CreateSymbol(ch);
                     if(tempSymbol.SymbolType == SymbolType.WordSlpitter || tempSymbol.SymbolType == SymbolType.SentenceSplitter)
                     {
@@ -54,7 +56,7 @@ namespace Task2.TextParsing.TextParserImplementation
                         textFactory.AddSentence(sentenceFactory.CreateSentece(sentencePartsBuffer));
                         sentencePartsBuffer.Clear();
                     }
-                    else
+                    else if(tempSymbol.SymbolType != SymbolType.WordSlpitter)
                     {
                         symbolsBuffer.Add(tempSymbol);
                     }
@@ -65,16 +67,6 @@ namespace Task2.TextParsing.TextParserImplementation
             {
                 return TextParsingStatus.Error;
             }
-        }
-
-        public TextParsingStatus ParseSentence(ISentence sentence)
-        {
-            return TextParsingStatus.Error;
-        }
-
-        public TextParsingStatus ParseWord(IWord word)
-        {
-            return TextParsingStatus.Error;
         }
     }
 }

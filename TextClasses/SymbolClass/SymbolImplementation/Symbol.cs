@@ -55,6 +55,12 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
                 case '!':
                     this.SymbolSentenceType = SymbolSentenceType.Exclaimor;
                     break;
+                case ' ':
+                    this.SymbolSentenceType = SymbolSentenceType.Space;
+                    break;
+                default:
+                    this.SymbolSentenceType = SymbolSentenceType.Dot;
+                    break;
             }
         }
 
@@ -77,7 +83,7 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
 
         bool IsWordSplitter(char ch)
         {
-            if(ch == ' ')
+            if(ch == ' ' || ch == ',')
             {
                 return true;
             }

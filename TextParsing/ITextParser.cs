@@ -12,7 +12,5 @@ namespace Task2.TextParsing
     interface ITextParser
     {
         TextParsingStatus ParseLine(string line);
-        TextParsingStatus ParseSentence(ISentence sentence);
-        TextParsingStatus ParseWord(IWord word);
     }
 }

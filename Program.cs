@@ -11,6 +11,8 @@ using Task2.Factories.TextFactoryItems.TextFactoryImplementation;
 using Task2.Factories.WordFactoryItems.WordFactoryImplementation;
 using Task2.TextClasses.SentenceClass;
 using Task2.TextClasses.TextClass;
+using Task2.TextClasses.SentenceParts.WordClass;
+using Task2.Enum.Types;
 
 namespace Task2
 {
@@ -38,12 +40,23 @@ namespace Task2
             bool menuState = true;
             while (menuState)
             {
+                int input = 0;
                 Console.Clear();
                 Console.WriteLine("Choose needed operation");
                 Console.WriteLine("1.Show parsed text");
-                Console.WriteLine("2.Show Question sentences");
+                Console.WriteLine("3.Show Question sentences");
+                Console.WriteLine("2.Show words with needed length in question sentences");
                 Console.WriteLine("0.Exit");
-                int input = int.Parse(Console.ReadLine());
+                try
+                {
+                    input = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Error input, please, try again:");
+                    Console.ReadKey();
+                }
+                
                 switch (input)
                 {
                     case 1:
@@ -64,15 +77,34 @@ namespace Task2
                         break;
                     case 2:
                         Console.Clear();
-                        Console.WriteLine("Question sentences:");
-                        foreach(ISentence sentence in text.Value)
+                        Console.WriteLine("Show words with needed length in question sentences");
+                        Console.WriteLine("Input length of word: ");
+                        int length = int.Parse(Console.ReadLine());
+                        foreach (ISentence sentence in text.Value)
                         {
-                            if(sentence.SentenceType == Enum.Types.SentenceType.Question)
+                            if(sentence.SentenceType == SentenceType.Question)
+                            {
+                                foreach(IWord word in sentence.Value)
+                                {
+                                    if(word.Length == length)
+                                    {
+                                        Console.Write(word + " ");
+                                    }
+                                }
+                            }
+                        }
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Question sentences:");
+                        foreach (ISentence sentence in text.Value)
+                        {
+                            if (sentence.SentenceType == SentenceType.Question)
                             {
                                 Console.WriteLine(sentence);
                             }
                         }
-                        Console.ReadKey();
                         break;
                     case 0:
                         menuState = false;

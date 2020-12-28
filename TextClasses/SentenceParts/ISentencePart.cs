@@ -10,7 +10,6 @@ namespace Task2.TextClasses.SentenceParts
     interface ISentencePart
     {
         List<ISymbol> Value { get; }
-        int Length { get; }
         string ToString();
     }
 }
