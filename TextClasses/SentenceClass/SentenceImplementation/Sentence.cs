@@ -13,7 +13,7 @@ namespace Task2.TextClasses.SentenceClass.SentenceImplementation
         public int NumberOfWords { get; }
         public SentenceType SentenceType { get; }
 
-        public ISentencePart[] Value { get; }
+        public List<ISentencePart> Value { get; }
 
         public override string ToString()
         {
@@ -25,9 +25,14 @@ namespace Task2.TextClasses.SentenceClass.SentenceImplementation
             return sb.ToString();
         }
 
-        public Sentence(ISentencePart[] sentenceParts)
+        public Sentence(List<ISentencePart> sentenceParts, SentenceType sentenceType = SentenceType.Declarative)
         {
-            this.Value = sentenceParts;
+            Value = new List<ISentencePart>();
+            foreach(ISentencePart sentencePart in sentenceParts)
+            {
+                Value.Add(sentencePart);
+            }
+            this.SentenceType = sentenceType;
         }
     }
 }

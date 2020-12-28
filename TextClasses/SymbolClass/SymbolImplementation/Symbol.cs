@@ -10,8 +10,8 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
     class Symbol : ISymbol
     {
         public char Value { get; }
-
-        public SymbolType SymbolType { get; }
+        public SymbolType SymbolType { get; private set; }
+        public SymbolSentenceType SymbolSentenceType { get; private set; }
 
         public override string ToString()
         {
@@ -21,21 +21,40 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
         public Symbol(char symbol)
         {
             this.Value = symbol;
+            SymbolTypeCheck(symbol);
+            SymbolSentenceTypeCheck(symbol);
+        }
+
+        void SymbolTypeCheck(char symbol)
+        {
             if (IsFowel(symbol))
             {
-                SymbolType = SymbolType.Vowel;
+                this.SymbolType = SymbolType.Vowel;
             }
-            else if(IsSentenceSplitter(symbol))
+            else if (IsSentenceSplitter(symbol))
             {
-                SymbolType = SymbolType.SentenceSplitter;
+                this.SymbolType = SymbolType.SentenceSplitter;
             }
             else if (IsWordSplitter(symbol))
             {
-                SymbolType = SymbolType.WordSlpitter;
+                this.SymbolType = SymbolType.WordSlpitter;
             }
             else
             {
-                SymbolType = SymbolType.Consonant;
+                this.SymbolType = SymbolType.Consonant;
+            }
+        }
+
+        void SymbolSentenceTypeCheck(char symbol)
+        {
+            switch (symbol)
+            {
+                case '?':
+                    this.SymbolSentenceType = SymbolSentenceType.Question;
+                    break;
+                case '!':
+                    this.SymbolSentenceType = SymbolSentenceType.Exclaimor;
+                    break;
             }
         }
 
@@ -46,7 +65,7 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
 
         bool IsSentenceSplitter(char ch)
         {
-            if(ch == '!' || ch =='.')
+            if(ch == '!' || ch =='.' || ch == '?')
             {
                 return true;
             }

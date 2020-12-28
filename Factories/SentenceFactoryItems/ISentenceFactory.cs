@@ -10,6 +10,6 @@ namespace Task2.Factories.SentenceFactoryItems
 {
     interface ISentenceFactory
     {
-        ISentence CreateSentece(ISentencePart[] sentenceParts);
+        ISentence CreateSentece(List<ISentencePart> sentenceParts);
     }
 }

@@ -51,7 +51,7 @@ namespace Task2.TextParsing.TextParserImplementation
                     }
                     if(tempSymbol.SymbolType == SymbolType.SentenceSplitter)
                     {
-                        textFactory.AddSentence(sentenceFactory.CreateSentece(sentencePartsBuffer.ToArray()));
+                        textFactory.AddSentence(sentenceFactory.CreateSentece(sentencePartsBuffer));
                         sentencePartsBuffer.Clear();
                     }
                     else

@@ -9,16 +9,13 @@ using Task2.Factories.SentenceFactoryItems.SentenceFactoryImplementation;
 using Task2.Factories.SymbolFactoryItems.SymbolFactoryImplementation;
 using Task2.Factories.TextFactoryItems.TextFactoryImplementation;
 using Task2.Factories.WordFactoryItems.WordFactoryImplementation;
+using Task2.TextClasses.SentenceClass;
 using Task2.TextClasses.TextClass;
 
 namespace Task2
 {
     class Program
     {
-        void ShowParsedText()
-        {
-
-        }
         static void Main(string[] args)
         {
             Text text;
@@ -31,10 +28,12 @@ namespace Task2
             string path = "F:\\Repositories\\Task2\\Task3\\Text\\Text.txt";
             textLoader.OpenFile(path);
             string s = textLoader.GetNextLine();
-            Console.WriteLine(textParser.ParseLine(s));
+            Console.WriteLine("Line parse status: {0}",textParser.ParseLine(s));
             s = textLoader.GetNextLine();
-            Console.WriteLine(textParser.ParseLine(s));
+            Console.WriteLine("Line parse status: {0}",textParser.ParseLine(s));
+            text = (Text)textFactory.CreateText();
             textLoader.Dispose();
+            Console.ReadKey();
 
             bool menuState = true;
             while (menuState)
@@ -42,6 +41,7 @@ namespace Task2
                 Console.Clear();
                 Console.WriteLine("Choose needed operation");
                 Console.WriteLine("1.Show parsed text");
+                Console.WriteLine("2.Show Question sentences");
                 Console.WriteLine("0.Exit");
                 int input = int.Parse(Console.ReadLine());
                 switch (input)
@@ -51,7 +51,6 @@ namespace Task2
                         try
                         {
                             Console.WriteLine("Parsed text:");
-                            text = (Text)textFactory.CreateText();
                             Console.WriteLine(text.GetText());
                         }
                         catch(Exception e)
@@ -62,6 +61,18 @@ namespace Task2
                         {
                             Console.ReadKey();
                         }                     
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Question sentences:");
+                        foreach(ISentence sentence in text.Value)
+                        {
+                            if(sentence.SentenceType == Enum.Types.SentenceType.Question)
+                            {
+                                Console.WriteLine(sentence);
+                            }
+                        }
+                        Console.ReadKey();
                         break;
                     case 0:
                         menuState = false;

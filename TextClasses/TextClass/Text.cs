@@ -9,24 +9,24 @@ namespace Task2.TextClasses.TextClass
 {
     class Text : IText
     {
-        List<ISentence> textSentences;
+        public List<ISentence> Value { get; private set; }
 
         public int Length
         {
             get
             {
-                return textSentences.Count;
+                return Value.Count;
             }
         }
 
         public Text(ISentence[] sentences)
         {
-            textSentences = new List<ISentence>();
+            Value = new List<ISentence>();
             try
             {
                 foreach(ISentence sentence in sentences)
                 {
-                    this.textSentences.Add(sentence);
+                    this.Value.Add(sentence);
                 }
             }
             catch
@@ -37,10 +37,10 @@ namespace Task2.TextClasses.TextClass
 
         public string GetText()
         {
-            if(textSentences != null)
+            if(Value != null)
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (ISentence sentence in textSentences)
+                foreach (ISentence sentence in Value)
                 {
                     sb.Append(sentence.ToString());
                 }
