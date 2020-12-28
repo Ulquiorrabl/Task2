@@ -15,6 +15,10 @@ namespace Task2
 {
     class Program
     {
+        void ShowParsedText()
+        {
+
+        }
         static void Main(string[] args)
         {
             Text text;
@@ -28,19 +32,44 @@ namespace Task2
             textLoader.OpenFile(path);
             string s = textLoader.GetNextLine();
             Console.WriteLine(textParser.ParseLine(s));
-            StringBuilder sb = new StringBuilder();
-            try
-            {
-                text = (Text)textFactory.CreateText();
-                Console.WriteLine(text.GetText());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            Console.WriteLine();
+            s = textLoader.GetNextLine();
+            Console.WriteLine(textParser.ParseLine(s));
             textLoader.Dispose();
-            Console.ReadKey();
+
+            bool menuState = true;
+            while (menuState)
+            {
+                Console.Clear();
+                Console.WriteLine("Choose needed operation");
+                Console.WriteLine("1.Show parsed text");
+                Console.WriteLine("0.Exit");
+                int input = int.Parse(Console.ReadLine());
+                switch (input)
+                {
+                    case 1:
+                        Console.Clear();
+                        try
+                        {
+                            Console.WriteLine("Parsed text:");
+                            text = (Text)textFactory.CreateText();
+                            Console.WriteLine(text.GetText());
+                        }
+                        catch(Exception e)
+                        {
+                            Console.WriteLine("Error {0}", e.Message);
+                        }
+                        finally
+                        {
+                            Console.ReadKey();
+                        }                     
+                        break;
+                    case 0:
+                        menuState = false;
+                        break;
+
+                }
+            }
+
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Task2.Factories.TextFactoryItems.TextFactoryImplementation
             try
             {
                 sentences.Add(sentence);
-                Console.WriteLine(sentence);
                 return TextFactoryStatus.SentenceAdded;
             }
             catch

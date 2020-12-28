@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleMenu\Menu.cs" />
     <Compile Include="Enum\Types\SentenceType.cs" />
     <Compile Include="Enum\Types\SymbolType.cs" />
     <Compile Include="Enum\Statuses\TextFactoryStatus.cs" />
