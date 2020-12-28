@@ -68,5 +68,6 @@ namespace Task2.TextParsing.TextParserImplementation
                 return TextParsingStatus.Error;
             }
         }
+
     }
 }

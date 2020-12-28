@@ -11,6 +11,7 @@ using Task2.Factories.TextFactoryItems.TextFactoryImplementation;
 using Task2.Factories.WordFactoryItems.WordFactoryImplementation;
 using Task2.TextClasses.SentenceClass;
 using Task2.TextClasses.TextClass;
+using Task2.TextClasses.SymbolClass;
 using Task2.TextClasses.SentenceParts.WordClass;
 using Task2.TextClasses.SentenceParts;
 using Task2.Enum.Types;
@@ -30,7 +31,7 @@ namespace Task2
             TextLoader textLoader = new TextLoader();
             TextParser textParser = new TextParser(textFactory, sentenceFactory, wordFactory, symbolFactory);
             string path = "F:\\Repositories\\Task2\\Task3\\Text\\Text.txt";
-            textLoader.OpenFile(path);
+            Console.WriteLine(textLoader.OpenFile(path));
             string s = textLoader.GetNextLine();
             Console.WriteLine("Line parse status: {0}",textParser.ParseLine(s));
             s = textLoader.GetNextLine();
@@ -49,6 +50,7 @@ namespace Task2
                 Console.WriteLine("2.Show words with needed length in question sentences");
                 Console.WriteLine("3.Show sentences in increasing order");
                 Console.WriteLine("4.Remove words with needed length");
+                Console.WriteLine("5.Replace words with given length with substring");
                 Console.WriteLine("0.Exit");
                 try
                 {
@@ -117,6 +119,28 @@ namespace Task2
                         foreach(ISentence sentence in text.Value)
                         {
                             sentence.Value.RemoveAll(word => word.Length == wordLength);
+                        }
+                        break;
+                    case 5:
+                        string substr;
+                        int replacedWordLength;
+                        Console.Clear();
+                        Console.WriteLine("Replace word with substring");
+                        Console.WriteLine("Input length of replaced words:");
+                        replacedWordLength = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Input substring:");
+                        substr = Console.ReadLine();
+                        foreach(ISentence sentence in text.Value)
+                        {
+                            List <ISymbol> symbolList = new List<ISymbol>();
+                            int index = 0;
+                            index = sentence.Value.FindIndex(word => word.Length == replacedWordLength);
+                            sentence.Value.RemoveAt(index);
+                            foreach(char ch in substr)
+                            {
+                                symbolList.Add(symbolFactory.CreateSymbol(ch));
+                            }
+                            sentence.Value.Insert(index, (ISentencePart)wordFactory.CreateWord(symbolList));
                         }
                         break;
                     case 0:
