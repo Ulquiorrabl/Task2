@@ -11,7 +11,7 @@ namespace Task2.Factories.WordFactoryItems.WordFactoryImplementation
 {
     class WordFactory : IWordFactory
     {
-        public IWord CreateWord(ISymbol[] symbols)
+        public IWord CreateWord(List<ISymbol> symbols)
         {
             return new Word(symbols);
         }

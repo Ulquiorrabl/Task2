@@ -9,6 +9,6 @@ namespace Task2.TextClasses.SentenceParts.WordClass
 {
     interface IWord
     {
-        ISymbol[] Value { get; }
+        List<ISymbol> Value { get; }
     }
 }

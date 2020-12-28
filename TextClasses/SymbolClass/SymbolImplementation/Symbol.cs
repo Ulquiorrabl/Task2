@@ -46,7 +46,7 @@ namespace Task2.TextClasses.SymbolClass.SymbolImplementation
 
         bool IsSentenceSplitter(char ch)
         {
-            if(ch == '!')
+            if(ch == '!' || ch =='.')
             {
                 return true;
             }

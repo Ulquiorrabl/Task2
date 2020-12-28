@@ -9,8 +9,14 @@ namespace Task2.TextClasses.SentenceParts.WordClass.WordImplementation
 {
     class Word : IWord, ISentencePart
     {
-        public ISymbol[] Value { get; }
-        public int Length { get; }
+        public List<ISymbol> Value { get; }
+        public int Length
+        {
+            get
+            {
+                return Value.Count;
+            }
+        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -20,10 +26,13 @@ namespace Task2.TextClasses.SentenceParts.WordClass.WordImplementation
             }
             return sb.ToString();
         }
-        public Word(ISymbol[] symbols)
+        public Word(List<ISymbol> symbols)
         {
-            this.Value = symbols;
-            this.Length = Value.Length;
+            this.Value = new List<ISymbol>();
+            foreach (ISymbol symbol in symbols)
+            {
+                Value.Add(symbol);
+            }
         }
     }
 }

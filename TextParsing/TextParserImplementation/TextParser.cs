@@ -33,7 +33,6 @@ namespace Task2.TextParsing.TextParserImplementation
 
         public TextParsingStatus ParseLine(string line)
         {
-            StringBuilder buffer = new StringBuilder();
             List<ISymbol> symbolsBuffer = new List<ISymbol>();
             List<ISentencePart> sentencePartsBuffer = new List<ISentencePart>();
             ISymbol tempSymbol;
@@ -42,15 +41,22 @@ namespace Task2.TextParsing.TextParserImplementation
                 foreach (char ch in line)
                 {
                     tempSymbol = symbolFactory.CreateSymbol(ch);
-                    symbolsBuffer.Add(tempSymbol);
-                    if(tempSymbol.SymbolType == SymbolType.WordSlpitter)
+                    if(tempSymbol.SymbolType == SymbolType.WordSlpitter || tempSymbol.SymbolType == SymbolType.SentenceSplitter)
                     {
-                        sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer.ToArray()));
+                        sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer));
+                        symbolsBuffer.Clear();
+                        symbolsBuffer.Add(tempSymbol);
+                        sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer));
                         symbolsBuffer.Clear();
                     }
                     if(tempSymbol.SymbolType == SymbolType.SentenceSplitter)
                     {
                         textFactory.AddSentence(sentenceFactory.CreateSentece(sentencePartsBuffer.ToArray()));
+                        sentencePartsBuffer.Clear();
+                    }
+                    else
+                    {
+                        symbolsBuffer.Add(tempSymbol);
                     }
                 }
                 return TextParsingStatus.LineParsed;

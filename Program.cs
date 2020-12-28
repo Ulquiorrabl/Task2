@@ -28,7 +28,6 @@ namespace Task2
             textLoader.OpenFile(path);
             string s = textLoader.GetNextLine();
             Console.WriteLine(textParser.ParseLine(s));
-            Console.WriteLine(s);
             StringBuilder sb = new StringBuilder();
             try
             {

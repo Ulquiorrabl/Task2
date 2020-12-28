@@ -10,6 +10,6 @@ namespace Task2.Factories.WordFactoryItems
 {
     interface IWordFactory
     {
-        IWord CreateWord(ISymbol[] symbols);
+        IWord CreateWord(List<ISymbol> symbols);
     }
 }
