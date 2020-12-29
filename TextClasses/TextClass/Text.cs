@@ -35,14 +35,14 @@ namespace Task2.TextClasses.TextClass
             }
         }
 
-        public string GetText()
+        public override string ToString()
         {
-            if(Value != null)
+            if (Value != null)
             {
                 StringBuilder sb = new StringBuilder();
                 foreach (ISentence sentence in Value)
                 {
-                    sb.Append(sentence.ToString());
+                    sb.Append(sentence.ToString() + " ");
                 }
                 return sb.ToString();
             }
@@ -50,6 +50,11 @@ namespace Task2.TextClasses.TextClass
             {
                 throw new Exception("There is no sentences in text");
             }
+        }
+
+        public string GetText()
+        {
+            return "";
         }
     }
 }

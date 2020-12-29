@@ -42,12 +42,18 @@ namespace Task2.TextParsing.TextParserImplementation
                 {
                     
                     tempSymbol = symbolFactory.CreateSymbol(ch);
-                    if(tempSymbol.SymbolType == SymbolType.WordSlpitter || tempSymbol.SymbolType == SymbolType.SentenceSplitter)
+                    if (tempSymbol.SymbolType == SymbolType.WordSlpitter || tempSymbol.SymbolType == SymbolType.SentenceSplitter)
                     {
-                        sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer));
-                        symbolsBuffer.Clear();
-                        symbolsBuffer.Add(tempSymbol);
-                        sentencePartsBuffer.Add((ISentencePart)wordFactory.CreateWord(symbolsBuffer));
+                        if (symbolsBuffer.Count != 0)
+                        {
+                            sentencePartsBuffer.Add(wordFactory.CreateWord(symbolsBuffer));
+                            symbolsBuffer.Clear();
+                            symbolsBuffer.Add(tempSymbol);
+                        }
+                        if(sentencePartsBuffer.Count != 0)
+                        {
+                            sentencePartsBuffer.Add(wordFactory.CreateWord(symbolsBuffer));
+                        }
                         symbolsBuffer.Clear();
                     }
                     if(tempSymbol.SymbolType == SymbolType.SentenceSplitter)

@@ -25,5 +25,6 @@ namespace Task2.Factories.WordFactoryItems.WordFactoryImplementation
             
             return new Word(symbols, isBeginsWithVowel);
         }
+
     }
 }

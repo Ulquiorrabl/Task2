@@ -11,6 +11,7 @@ namespace Task2.Enum.Types
         Question,
         Exclaimor,
         Dot,
-        Space
+        Space,
+        NotDefined
     }
 }

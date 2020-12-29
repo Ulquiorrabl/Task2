@@ -11,6 +11,7 @@ namespace Task2.Enum.Types
         Vowel,
         Consonant,
         WordSlpitter,
-        SentenceSplitter
+        SentenceSplitter,
+        NotDefined
     }
 }

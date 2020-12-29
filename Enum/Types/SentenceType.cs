@@ -10,6 +10,7 @@ namespace Task2.Enum.Types
     {
         Question,
         Declarative,
-        Exclamatory
+        Exclamatory,
+        NotDefined
     }
 }

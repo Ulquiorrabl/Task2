@@ -7,7 +7,7 @@ using Task2.TextClasses.SymbolClass;
 
 namespace Task2.TextClasses.SentenceParts.WordClass
 {
-    interface IWord
+    interface IWord : ISentencePart
     {
         bool IsBeginsWithVowel { get; }
     }
