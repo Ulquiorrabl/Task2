@@ -120,10 +120,6 @@ namespace Task2
                         Console.WriteLine("Remove words that start with vowel with needed length");
                         Console.WriteLine("Input word length:");
                         int wordLength = int.Parse(Console.ReadLine());
-                        /*foreach(ISentence sentence in text.Value)
-                        {
-                            sentence.Value.RemoveAll(word => word.Length == wordLength);
-                        }*/
                         foreach(ISentence sentence in text.Value)
                         {
                             for(int i=0; i<sentence.Value.Count; i++)
