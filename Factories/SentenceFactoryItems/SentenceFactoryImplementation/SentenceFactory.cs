@@ -29,13 +29,6 @@ namespace Task2.Factories.SentenceFactoryItems.SentenceFactoryImplementation
             {
                 sentenceType = SentenceType.Exclamatory;
             }
-            /*if (sentenceParts.Count != 0)
-            {
-                if (sentenceParts[0].Value[0].SymbolSentenceType == SymbolSentenceType.Space)
-                {
-                    sentenceParts.RemoveAt(0);
-                }
-            }*/
             return new Sentence(sentenceParts, sentenceType, numberOfWords);
         }
     }
